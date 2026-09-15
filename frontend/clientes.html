@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clientes - Layali Al Ahlam</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Layali Al Ahlam Importados</h1>
+        <p>Cadastro de Clientes</p>
+    </header>
+
+
+    <main>
+
+        <a href="index.html">← Voltar ao menu</a>
+
+
+        <h2>Cadastrar Cliente</h2>
+
+
+        <form id="formCliente">
+
+            <label>Nome:</label>
+
+            <input
+                type="text"
+                id="nome"
+                required
+            >
+
+
+            <label>CPF:</label>
+
+            <input
+                type="text"
+                id="CPF"
+                maxlength="14"
+                placeholder="000.000.000-00"
+                required
+            >
+
+
+            <label>Telefone:</label>
+
+            <input
+                type="text"
+                id="telefone"
+                placeholder="(00) 00000-0000"
+                required
+            >
+
+
+            <label>E-mail:</label>
+
+            <input
+                type="email"
+                id="email"
+                required
+            >
+
+
+            <label>Endereço:</label>
+
+            <input
+                type="text"
+                id="endereco"
+                required
+            >
+
+
+            <button type="submit">
+                Cadastrar Cliente
+            </button>
+
+        </form>
+
+
+        <hr>
+
+
+        <h2>Clientes cadastrados</h2>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Endereço</th>
+                    <th>Data de Cadastro</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="listaClientes"></tbody>
+
+        </table>
+
+    </main>
+
+
+    <script src="js/clientes.js"></script>
+
+</body>
+
+</html>

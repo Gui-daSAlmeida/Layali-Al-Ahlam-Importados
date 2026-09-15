@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estoque - Layali Al Ahlam</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Layali Al Ahlam Importados</h1>
+        <p>Controle de Estoque</p>
+    </header>
+
+    <main>
+
+        <a href="index.html">← Voltar ao menu</a>
+
+        <h2>Adicionar / Atualizar Estoque</h2>
+
+        <form id="formEstoque">
+
+            <label>Produto:</label>
+
+            <select id="produto" required>
+                <option value="">Selecione um produto</option>
+            </select>
+
+
+            <label>Quantidade:</label>
+
+            <input
+                type="number"
+                id="quantidade"
+                min="0"
+                required
+            >
+
+
+            <label>Estoque mínimo:</label>
+
+            <input
+                type="number"
+                id="estoque_minimo"
+                min="0"
+                value="5"
+                required
+            >
+
+
+            <button type="submit">
+                Salvar Estoque
+            </button>
+
+        </form>
+
+
+        <hr>
+
+
+        <h2>Estoque dos Produtos</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Produto</th>
+                    <th>Marca</th>
+                    <th>Quantidade</th>
+                    <th>Estoque Mínimo</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="listaEstoque"></tbody>
+
+        </table>
+
+    </main>
+
+
+    <script src="js/estoque.js"></script>
+
+</body>
+
+</html>

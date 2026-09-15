@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard - Layali Al Ahlam</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         CABEÇALHO
+    =========================================== -->
+
+    <header>
+
+        <h1>Layali Al Ahlam Importados</h1>
+
+        <p>Sistema de Gestão</p>
+
+    </header>
+
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL
+    =========================================== -->
+
+    <main>
+
+        <h2>Dashboard</h2>
+
+
+        <!-- ==========================================
+             CARDS
+        =========================================== -->
+
+        <section class="dashboard-cards">
+
+
+            <!-- PRODUTOS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <h3>Produtos</h3>
+
+                    <p
+                        id="totalProdutos"
+                        class="numero"
+                    >
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CLIENTES -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <h3>Clientes</h3>
+
+                    <p
+                        id="totalClientes"
+                        class="numero"
+                    >
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VENDAS -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    🛒
+                </div>
+
+                <div>
+
+                    <h3>Vendas</h3>
+
+                    <p
+                        id="totalVendas"
+                        class="numero"
+                    >
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FATURAMENTO -->
+
+            <div class="dashboard-card">
+
+                <div class="card-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h3>Faturamento</h3>
+
+                    <p
+                        id="valorTotalVendas"
+                        class="numero"
+                    >
+                        R$ 0,00
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESTOQUE BAIXO -->
+
+            <div class="dashboard-card alerta">
+
+                <div class="card-icon">
+                    ⚠️
+                </div>
+
+                <div>
+
+                    <h3>Estoque Baixo</h3>
+
+                    <p
+                        id="estoqueBaixo"
+                        class="numero"
+                    >
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             ACESSO RÁPIDO
+        =========================================== -->
+
+        <section class="acesso-rapido">
+
+            <h2>Acesso rápido</h2>
+
+
+            <div class="menu">
+
+
+                <a href="produtos.html">
+
+                    <div class="card">
+
+                        <h3>📦 Produtos</h3>
+
+                        <p>
+                            Cadastrar e consultar produtos
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a href="clientes.html">
+
+                    <div class="card">
+
+                        <h3>👥 Clientes</h3>
+
+                        <p>
+                            Cadastrar e consultar clientes
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a href="estoque.html">
+
+                    <div class="card">
+
+                        <h3>📊 Estoque</h3>
+
+                        <p>
+                            Controlar quantidade e estoque mínimo
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <a href="vendas.html">
+
+                    <div class="card">
+
+                        <h3>🛒 Vendas</h3>
+
+                        <p>
+                            Registrar e consultar vendas
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
+
