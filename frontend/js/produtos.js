@@ -23,7 +23,7 @@ async function carregarProdutos() {
                 <td>${produto.marca}</td>
                 <td>${produto.nome}</td>
                 <td>${produto.categoria || ''}</td>
-                <td>R$ ${Number(produto.preco).toFixed(2)}</td>
+                <td class="price">${Number(produto.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                 <td>${produto.codigo || ''}</td>
             `;
 

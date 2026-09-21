@@ -154,7 +154,7 @@ async function carregarVendas() {
             </td>
 
             <td>
-                R$ ${Number(venda.valor_venda).toFixed(2)}
+                ${Number(venda.valor_venda).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
             </td>
 
         `;

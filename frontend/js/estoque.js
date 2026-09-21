@@ -61,15 +61,15 @@ async function carregarEstoque() {
 
             if (item.quantidade === 0) {
 
-                status = '❌ Sem estoque';
+                status = '<span class="badge empty">❌ Sem estoque</span>';
 
             } else if (item.quantidade <= item.estoque_minimo) {
 
-                status = '⚠️ Estoque baixo';
+                status = '<span class="badge low">⚠️ Estoque baixo</span>';
 
             } else {
 
-                status = '✅ Normal';
+                status = '<span class="badge ok">✅ Normal</span>';
 
             }
 
@@ -88,6 +88,15 @@ async function carregarEstoque() {
                 <td>${item.estoque_minimo}</td>
 
                 <td>${status}</td>
+
+                <td>
+                    <button type="button" class="btn-editar-estoque"
+                        data-cod="${item.cod_produtos}"
+                        data-quantidade="${item.quantidade}"
+                        data-minimo="${item.estoque_minimo}">
+                        ✏️ Editar
+                    </button>
+                </td>
             `;
 
 
@@ -105,6 +114,42 @@ async function carregarEstoque() {
     }
 
 }
+
+
+// ==========================================
+// EDITAR ESTOQUE
+// ==========================================
+
+document.getElementById('listaEstoque').addEventListener('click', function (event) {
+
+    const botao = event.target.closest('.btn-editar-estoque');
+
+    if (!botao) return;
+
+    const cod = botao.dataset.cod;
+    const quantidade = botao.dataset.quantidade;
+    const minimo = botao.dataset.minimo;
+
+    const select = document.getElementById('produto');
+
+    select.value = cod;
+    document.getElementById('quantidade').value = quantidade;
+    document.getElementById('estoque_minimo').value = minimo;
+
+    const botaoSalvar = document.querySelector('#formEstoque button[type="submit"]');
+
+    if (botaoSalvar) {
+        botaoSalvar.textContent = '✓ Atualizar Estoque';
+    }
+
+    const form = document.getElementById('formEstoque');
+
+    form.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+
+});
 
 
 // ==========================================
@@ -171,6 +216,12 @@ document
                 .getElementById('formEstoque')
                 .reset();
 
+            const botaoSalvar =
+                document.querySelector('#formEstoque button[type="submit"]');
+
+            if (botaoSalvar) {
+                botaoSalvar.textContent = 'Salvar Estoque';
+            }
 
             carregarEstoque();
 

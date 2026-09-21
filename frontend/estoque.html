@@ -1,94 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Estoque - Layali Al Ahlam</title>
-
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estoque - Layali Al Ahlam</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Layali Al Ahlam Importados</h1>
-        <p>Controle de Estoque</p>
-    </header>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>
+            <h1>Layali Al Ahlam Importados</h1>
+            <p>Controle de Estoque</p>
+        </div>
+    </div>
+    <div class="header-user">
+        <strong>Administrador</strong>
+        <span class="status">● Sistema online</span>
+    </div>
+</header>
 
-    <main>
+<div class="layout">
 
-        <a href="index.html">← Voltar ao menu</a>
+<aside class="sidebar">
+    <div class="sidebar-title">Menu principal</div>
+    <nav><a href="index.html" class=""><span>🏠</span><span>Dashboard</span></a>
+<a href="produtos.html" class=""><span>📦</span><span>Produtos</span></a>
+<a href="clientes.html" class=""><span>👥</span><span>Clientes</span></a>
+<a href="estoque.html" class="active"><span>📊</span><span>Estoque</span></a>
+<a href="vendas.html" class=""><span>🛒</span><span>Vendas</span></a></nav>
+</aside>
 
-        <h2>Adicionar / Atualizar Estoque</h2>
+<main class="content">
+    <a class="back-link" href="index.html">← Voltar ao dashboard</a>
+    <div class="page-heading"><div><h2>Estoque</h2><p>Controle a quantidade disponível de cada produto.</p></div></div>
 
+    <section class="form-card">
+        <div class="section-title"><h3>+ Adicionar / atualizar estoque</h3><p>Selecione o produto e informe a quantidade atual.</p></div>
         <form id="formEstoque">
-
-            <label>Produto:</label>
-
-            <select id="produto" required>
-                <option value="">Selecione um produto</option>
-            </select>
-
-
-            <label>Quantidade:</label>
-
-            <input
-                type="number"
-                id="quantidade"
-                min="0"
-                required
-            >
-
-
-            <label>Estoque mínimo:</label>
-
-            <input
-                type="number"
-                id="estoque_minimo"
-                min="0"
-                value="5"
-                required
-            >
-
-
-            <button type="submit">
-                Salvar Estoque
-            </button>
-
+            <div class="form-grid">
+                <div class="field full">
+                    <label for="produto">Produto</label>
+                    <select id="produto" required><option value="">Selecione um produto</option></select>
+                </div>
+                <div class="field">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" min="0" placeholder="0" required>
+                </div>
+                <div class="field">
+                    <label for="estoque_minimo">Estoque mínimo</label>
+                    <input type="number" id="estoque_minimo" min="0" value="5" required>
+                </div>
+            </div>
+            <div class="form-actions"><button type="submit" class="primary">Salvar Estoque</button></div>
         </form>
+    </section>
 
-
-        <hr>
-
-
-        <h2>Estoque dos Produtos</h2>
-
-        <table>
-
-            <thead>
-
-                <tr>
-                    <th>ID</th>
-                    <th>Produto</th>
-                    <th>Marca</th>
-                    <th>Quantidade</th>
-                    <th>Estoque Mínimo</th>
-                    <th>Status</th>
-                </tr>
-
-            </thead>
-
-            <tbody id="listaEstoque"></tbody>
-
-        </table>
-
-    </main>
-
-
-    <script src="js/estoque.js"></script>
-
+    <section class="table-card">
+        <div class="table-header">
+            <h3>Estoque dos produtos</h3>
+            <div class="search-box"><input type="search" id="pesquisaEstoque" placeholder="🔍 Pesquisar produto..."></div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>ID</th><th>Produto</th><th>Marca</th><th>Quantidade</th><th>Estoque Mínimo</th><th>Status</th><th>Ação</th></tr></thead>
+                <tbody id="listaEstoque"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</div>
+<script src="js/estoque.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const campo = document.getElementById('pesquisaEstoque');
+    campo.addEventListener('input', () => {
+        const termo = campo.value.toLowerCase().trim();
+        document.querySelectorAll('#listaEstoque tr').forEach(linha => {
+            linha.style.display = linha.textContent.toLowerCase().includes(termo) ? '' : 'none';
+        });
+    });
+});
+</script>
 </body>
-
 </html>

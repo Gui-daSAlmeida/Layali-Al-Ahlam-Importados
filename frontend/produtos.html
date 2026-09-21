@@ -1,74 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Produtos - Layali Al Ahlam</title>
-
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos - Layali Al Ahlam</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Layali Al Ahlam Importados</h1>
-        <p>Cadastro de Produtos</p>
-    </header>
+<header class="app-header">
+    <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>
+            <h1>Layali Al Ahlam Importados</h1>
+            <p>Gerenciamento de Produtos</p>
+        </div>
+    </div>
+    <div class="header-user">
+        <strong>Administrador</strong>
+        <span class="status">● Sistema online</span>
+    </div>
+</header>
 
-    <main>
+<div class="layout">
 
-        <a href="index.html">← Voltar ao menu</a>
+<aside class="sidebar">
+    <div class="sidebar-title">Menu principal</div>
+    <nav><a href="index.html" class=""><span>🏠</span><span>Dashboard</span></a>
+<a href="produtos.html" class="active"><span>📦</span><span>Produtos</span></a>
+<a href="clientes.html" class=""><span>👥</span><span>Clientes</span></a>
+<a href="estoque.html" class=""><span>📊</span><span>Estoque</span></a>
+<a href="vendas.html" class=""><span>🛒</span><span>Vendas</span></a></nav>
+</aside>
 
-        <h2>Cadastrar Produto</h2>
+<main class="content">
+    <a class="back-link" href="index.html">← Voltar ao dashboard</a>
+    <div class="page-heading">
+        <div><h2>Produtos</h2><p>Cadastre e consulte os produtos da loja.</p></div>
+    </div>
 
+    <section class="form-card">
+        <div class="section-title">
+            <h3>+ Cadastrar novo produto</h3>
+            <p>Preencha as informações abaixo para adicionar um produto ao catálogo.</p>
+        </div>
         <form id="formProduto">
-
-            <label>Marca:</label>
-            <input type="text" id="marca" required>
-
-            <label>Nome do produto:</label>
-            <input type="text" id="nome" required>
-
-            <label>Categoria:</label>
-            <input type="text" id="categoria">
-
-            <label>Preço:</label>
-            <input type="number" id="preco" step="0.01" min="0" required>
-
-            <label>Código:</label>
-            <input type="text" id="codigo">
-
-            <button type="submit">Cadastrar Produto</button>
-
+            <div class="form-grid">
+                <div class="field">
+                    <label for="marca">Marca</label>
+                    <input type="text" id="marca" placeholder="Ex.: O Boticário" required>
+                </div>
+                <div class="field">
+                    <label for="nome">Nome do produto</label>
+                    <input type="text" id="nome" placeholder="Ex.: Malbec Gold" required>
+                </div>
+                <div class="field">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" id="categoria" placeholder="Ex.: Perfume Masculino">
+                </div>
+                <div class="field">
+                    <label for="preco">Preço</label>
+                    <input type="number" id="preco" step="0.01" min="0" placeholder="159,90" required>
+                </div>
+                <div class="field">
+                    <label for="codigo">Código</label>
+                    <input type="text" id="codigo" placeholder="Ex.: PERF002">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="primary">+ Cadastrar Produto</button>
+            </div>
         </form>
+    </section>
 
-        <hr>
-
-        <h2>Produtos cadastrados</h2>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Marca</th>
-                    <th>Nome</th>
-                    <th>Categoria</th>
-                    <th>Preço</th>
-                    <th>Código</th>
-                </tr>
-            </thead>
-
-            <tbody id="listaProdutos"></tbody>
-
-        </table>
-
-    </main>
-
-    <script src="js/produtos.js"></script>
-
+    <section class="table-card">
+        <div class="table-header">
+            <h3>Produtos cadastrados</h3>
+            <div class="search-box">
+                <input type="search" id="pesquisaProdutos" placeholder="🔍 Pesquisar por nome, marca ou código...">
+            </div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>ID</th><th>Marca</th><th>Nome</th><th>Categoria</th><th>Preço</th><th>Código</th></tr></thead>
+                <tbody id="listaProdutos"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</div>
+<script src="js/produtos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const campo = document.getElementById('pesquisaProdutos');
+    campo.addEventListener('input', () => {
+        const termo = campo.value.toLowerCase().trim();
+        document.querySelectorAll('#listaProdutos tr').forEach(linha => {
+            linha.style.display = linha.textContent.toLowerCase().includes(termo) ? '' : 'none';
+        });
+    });
+});
+</script>
 </body>
-
 </html>
